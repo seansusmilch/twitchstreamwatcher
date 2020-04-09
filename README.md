@@ -1,6 +1,5 @@
 # twitchstreamwatcher
-Im bored as fuck
-
+so basically you run either of the start scripts and if its your first run it'll ask for your twitch username and password. After that it logs into your twitch account and watches a drops enabled valorant stream for a random amount of time with a range of about 2-36 minutes. 
 ## Requirements
 * Python. I havent tested it with any other version than [3.8.2](https://www.python.org/downloads/release/python-382/)
 * Google Chrome 81. `chromedriver.exe` can be replaced with a different version from [here](https://chromedriver.chromium.org/downloads)
