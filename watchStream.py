@@ -51,6 +51,6 @@ while True:
 
     elements = driver.find_elements_by_class_name('tw-link')
     elements[random.randint(0,100)].click()
-    print("Sleeping now (ᴗ.ᴗ) zzz")
+    print("Sleeping now (-.-) zzz")
     randSleep()
     print("Damn this shit boring")
