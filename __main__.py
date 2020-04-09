@@ -7,7 +7,7 @@ def setup():
     user = input("Twitch Username: ")
     passwd = input("Twitch Password: ")
 
-    f = open('secrets.py','w')
+    f = open(dir+'/secrets.py','w')
     f.write(
         "user = '" + user + "'\n"
         "passwd = '" + passwd + "'"
