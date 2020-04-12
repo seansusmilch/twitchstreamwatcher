@@ -5,4 +5,4 @@ so basically you run either of the start scripts and if its your first run it'll
 * Google Chrome 81. `chromedriver.exe` can be replaced with a different version from [here](https://chromedriver.chromium.org/downloads)
 
 UPDATE 4/12/2020:
-Bro it fucking worked
+Oh shit it worked
