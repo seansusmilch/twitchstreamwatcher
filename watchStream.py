@@ -17,8 +17,8 @@ def watchSteam():
     dir = dir[0]
 
     def randSleep():
-        lowMin = 4
-        hiMin = 60
+        lowMin = 135
+        hiMin = 300
         slp = random.randint(lowMin,hiMin) * (random.randint(70,101) / (100 + random.randint(0,10)))
         print(datetime.now().strftime("%H:%M"),' - sleeping for ',slp,' minutes')
         time.sleep(slp * 60)
@@ -63,8 +63,7 @@ def watchSteam():
         elements = driver.find_elements_by_xpath('//*[text()="Start Watching"]')
         if len(elements) == 1:
             elements[0].click()
-
-        print("Sleeping now (-.-) zzz")
+        print('Currently viewing ' + driver.current_url)
         randSleep()
         print("Aight I'm out")
 
