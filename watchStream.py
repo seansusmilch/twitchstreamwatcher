@@ -30,8 +30,8 @@ def watchSteam():
     driver.get('https://twitch.tv/login')
     drive = driverWithDelay(driver, 1)
 
-    drive.send('/html/body/div[1]/div/div[1]/div[3]/div/div/div/div[3]/form/div/div[1]/div/div[2]/input',user)
-    drive.send('/html/body/div[1]/div/div[1]/div[3]/div/div/div/div[3]/form/div/div[2]/div/div[1]/div[2]/div[1]/input',passwd)
+    drive.send('//input[@id="login-username"]',user)
+    drive.send('//input[@id="password-input"]',passwd)
     drive.click('/html/body/div[1]/div/div[1]/div[3]/div/div/div/div[3]/form/div/div[3]/button')
 
     timeout = 30
@@ -67,3 +67,5 @@ def watchSteam():
         print("Sleeping now (-.-) zzz")
         randSleep()
         print("Aight I'm out")
+
+watchSteam()
