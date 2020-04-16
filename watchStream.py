@@ -17,8 +17,8 @@ def watchSteam():
     dir = dir[0]
 
     def randSleep():
-        lowMin = 2
-        hiMin = 36
+        lowMin = 4
+        hiMin = 60
         slp = random.randint(lowMin,hiMin) * (random.randint(70,101) / (100 + random.randint(0,10)))
         print(datetime.now().strftime("%H:%M"),' - sleeping for ',slp,' minutes')
         time.sleep(slp * 60)
@@ -42,18 +42,28 @@ def watchSteam():
         
     print('Logged in!')
     time.sleep(2)
-    #go to https://www.twitch.tv/directory/game/VALORANT
+    #go to drops enabled streams https://www.twitch.tv/directory/game/VALORANT?tl=c2542d6d-cd10-4532-919b-3d19f30a768b
 
     while True:
         print('Going to Valorant streams')
-        driver.get('https://www.twitch.tv/directory/game/VALORANT')
+        driver.get('https://www.twitch.tv/directory/game/VALORANT?tl=c2542d6d-cd10-4532-919b-3d19f30a768b')
         time.sleep(2)
-        drive.click('//*[@id="root"]/div/div[2]/div/main/div[1]/div[3]/div/div/div/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]/div/div/div/div/article/div[1]/div/div[1]/div[3]/div/div/div[2]/button')
-
-        #click a random stream and sit there for a lil bit
-
+        
         elements = driver.find_elements_by_class_name('tw-link')
-        elements[random.randint(0,100)].click()
+        elements[random.randint(0,len(elements))].click()
+        time.sleep(1)
+
+        # See if twitch went to the /videos section for some reason and go to the channels live stream if it did
+        if '/videos' in driver.current_url:
+            print('going to live')
+            driver.get(driver.current_url.split('/videos')[0])
+        time.sleep(1)
+
+        # See if its an inappropriate stream and click Start Watching if it is
+        elements = driver.find_elements_by_xpath('//*[text()="Start Watching"]')
+        if len(elements) == 1:
+            elements[0].click()
+
         print("Sleeping now (-.-) zzz")
         randSleep()
-        print("Damn this shit boring")
+        print("Aight I'm out")
